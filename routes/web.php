@@ -14,8 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::get('/categorias', [CategoriesController::class, 'index']);
+//Route::post('/categorias/create', 'CategoriesController@create')->name('admin.categories.create');
+Route::post('/categorias/create', [CategoriesController::class, 'create'])->name('admin.categories.create');
+

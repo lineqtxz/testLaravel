@@ -39,8 +39,31 @@
                 </div>
 
                 <div class="">
-                        {{$categories}}
+                    <table>
+                        <tbody>
+                            @foreach ($categories as $category)
+                            <tr>
+                                <td>{{ $category->name }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                        <!-- {{$categories}} -->
                 </div>
+
+
+                <form action="{{ route('admin.categories.create') }}" method="post">
+                    {{ csrf_field() }}
+                    <div>
+                        <label>categoria</label>
+                        <input type="text" name="name" id="name">
+
+                    </div>
+                    <div>
+                        <button type="submit"> ok </button>
+                    </div>
+                </form>
+
 
                 <div class="ml-4 text-center text-sm text-gray-500 dark:text-gray-400 sm:text-right sm:ml-0">
                     Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
